@@ -4,7 +4,7 @@ import {createBrowserRouter, RouterProvider} from "react-router";
 import {Dashboard} from "./pages/Dashboard.tsx";
 import {Add} from "./pages/Add.tsx";
 import {Delete} from "./pages/Delete.tsx";
-import {UpdateCustomer} from "./pages/UpdateCustomer.tsx";
+import {Update} from "./pages/Update.tsx";
 import {RootLayout} from "./components/RootLayout.tsx";
 import {ItemProvider} from "./store/ItemProvider.tsx";
 
@@ -17,7 +17,7 @@ function App() {
                 { path : '', element : <Dashboard/>},
                 { path : '/add', element : <Add/>},
                 { path : '/delete', element : <Delete/>},
-                { path : '/update', element : <UpdateCustomer/>}
+                { path : '/update', element : <Update/>}
             ]
         },
     ])
