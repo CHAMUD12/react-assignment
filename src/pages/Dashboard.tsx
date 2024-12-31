@@ -2,10 +2,14 @@ import {useContext} from "react";
 import {Customer} from "../models/Customer";
 import {CustomerContext} from "../store/CustomerProvider";
 import "./Dashboard.css"
+import {ItemContext} from "../store/ItemProvider.tsx";
+import {Item} from "../models/Item.ts";
 
 export function Dashboard() {
 
     const [customers, dispatch] = useContext(CustomerContext);
+    const [items, item_dispatch] = useContext(ItemContext);
+
     return (
         <div className="p-6">
             <h1 className="text-3xl font-bold text-gray-700 mb-6">Dashboard</h1>
@@ -47,13 +51,14 @@ export function Dashboard() {
                     <h1 className="text-2xl font-bold text-gray-800 mb-1">Item</h1>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-                        {customers.map((customer: Customer) => (
+                        {items.map((item: Item) => (
                             <div className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
                                 <h2 className="text-lg font-semibold text-blue-600">
-                                    {customer.name}
+                                    {item.item_code}
                                 </h2>
-                                <p className="text-gray-600">{customer.email}</p>
-                                <p className="text-gray-600">{customer.phone}</p>
+                                <p className="text-gray-600">{item.category}</p>
+                                <p className="text-gray-600">{item.unit_price}</p>
+                                <p className="text-gray-600">{item.qty}</p>
                             </div>
                         ))}
                     </div>
