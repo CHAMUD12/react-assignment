@@ -5,7 +5,9 @@ export function RootLayout() {
     return(
         <>
             <Navigation></Navigation>
-            <Outlet></Outlet>
+            <main className="p-4">
+                <Outlet></Outlet>
+            </main>
         </>
     );
 }
