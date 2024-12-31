@@ -10,41 +10,45 @@ export function Delete() {
 
     const navigate = useNavigate();
     const [customers, dispatch] = useContext(CustomerContext);
-    const[items, item_dispatch] = useContext(ItemContext);
+    const [items, item_dispatch] = useContext(ItemContext);
 
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [phone,setPhone] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
 
     const [item_code, setItemCode] = useState("");
     const [category, setCategory] = useState("");
-    const[unit_price, setUnit_price] = useState("");
-    const[qty, setQty] = useState("");
+    const [unit_price, setUnit_price] = useState("");
+    const [qty, setQty] = useState("");
 
     function handleSubmit() {
-        const deleteCustomer = new Customer(name,email,phone);
-        dispatch({type:'DELETE_CUSTOMER',payload:deleteCustomer});
+        const deleteCustomer = new Customer(name, email, phone);
+        dispatch({type: 'DELETE_CUSTOMER', payload: deleteCustomer});
         navigate('/');
     }
 
     function handleItemSubmit() {
-        const deleteItem = new Item(item_code,category,unit_price,qty);
-        item_dispatch({type:'DELETE_ITEM', payload:deleteItem});
+        const deleteItem = new Item(item_code, category, unit_price, qty);
+        item_dispatch({type: 'DELETE_ITEM', payload: deleteItem});
         navigate('/');
     }
 
     return (
-        <>
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <header><h2 className="text-2xl font-bold text-gray-700 mb-4">Delete Customer</h2></header>
-                <br/>
-                <Modal type="customer" handleSubmit={handleSubmit} setName={setName} setEmail={setEmail} setPhone={setPhone}>Delete
-                    Customer</Modal>
+        <div className="flex gap-6 p-6">
+            <div className="w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
+                <header>
+                    <h2 className="text-2xl font-bold text-gray-700 mb-4">Delete Customer</h2>
+                </header>
+                <Modal type="customer" handleSubmit={handleSubmit} setName={setName} setEmail={setEmail}
+                       setPhone={setPhone}>
+                    Delete Customer
+                </Modal>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <header><h2 className="text-2xl font-bold text-gray-700 mb-4">Delete Item</h2></header>
-                <br/>
+            <div className="w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
+                <header>
+                    <h2 className="text-2xl font-bold text-gray-700 mb-4">Delete Item</h2>
+                </header>
                 <Modal
                     type="item"
                     handleSubmit={handleItemSubmit}
@@ -56,6 +60,6 @@ export function Delete() {
                     Delete Item
                 </Modal>
             </div>
-        </>
+        </div>
     );
 }

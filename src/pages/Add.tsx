@@ -18,35 +18,40 @@ export function Add() {
 
     const [item_code, setItemCode] = useState("");
     const [category, setCategory] = useState("");
-    const[unit_price, setUnit_price] = useState("");
-    const[qty, setQty] = useState("");
+    const [unit_price, setUnit_price] = useState("");
+    const [qty, setQty] = useState("");
 
     function handleSubmit() {
         const newCustomer = new Customer(name, email, phone);
-        dispatch({type:'ADD_CUSTOMER', payload:newCustomer});
+        dispatch({type: 'ADD_CUSTOMER', payload: newCustomer});
         navigate('/');
     }
 
     function handleItemSubmit() {
-        const newItem = new Item(item_code,category,unit_price,qty);
-        item_dispatch({type:'ADD_ITEM', payload:newItem});
+        const newItem = new Item(item_code, category, unit_price, qty);
+        item_dispatch({type: 'ADD_ITEM', payload: newItem});
         navigate('/');
     }
 
     return (
-        <>
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <header><h2 className="text-2xl font-bold text-gray-700 mb-4">Add Customer</h2></header>
-                <br/>
-
-                <Modal type="customer" handleSubmit={handleSubmit} setName={setName} setEmail={setEmail} setPhone={setPhone}>Add
-                    Customer</Modal>
+        <div className="flex gap-6 p-6">
+            <div className="w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
+                <header>
+                    <h2 className="text-2xl font-bold text-gray-700 mb-4">Add Customer</h2>
+                </header>
+                <Modal type="customer"
+                       handleSubmit={handleSubmit}
+                       setName={setName}
+                       setEmail={setEmail}
+                       setPhone={setPhone}>
+                    Add Customer
+                </Modal>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <header><h2 className="text-2xl font-bold text-gray-700 mb-4">Add Item</h2></header>
-                <br/>
-
+            <div className="w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
+                <header>
+                    <h2 className="text-2xl font-bold text-gray-700 mb-4">Add Item</h2>
+                </header>
                 <Modal
                     type="item"
                     handleSubmit={handleItemSubmit}
@@ -58,6 +63,6 @@ export function Add() {
                     Add Item
                 </Modal>
             </div>
-        </>
+        </div>
     );
 }

@@ -2,10 +2,10 @@ import {Navigation} from "./Navigation.tsx";
 import {Outlet} from "react-router";
 
 export function RootLayout() {
-    return(
+    return (
         <>
             <Navigation></Navigation>
-            <main className="p-4">
+            <main>
                 <Outlet></Outlet>
             </main>
         </>

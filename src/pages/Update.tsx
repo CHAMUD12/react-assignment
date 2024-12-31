@@ -18,33 +18,37 @@ export function Update() {
 
     const [item_code, setItemCode] = useState("");
     const [category, setCategory] = useState("");
-    const[unit_price, setUnit_price] = useState("");
-    const[qty, setQty] = useState("");
+    const [unit_price, setUnit_price] = useState("");
+    const [qty, setQty] = useState("");
 
     function handleSubmit() {
         const updatedCustomer = new Customer(name, email, phone);
-        dispatch({type:'UPDATE_CUSTOMER', payload:updatedCustomer});
+        dispatch({type: 'UPDATE_CUSTOMER', payload: updatedCustomer});
         navigate('/');
     }
 
     function handleItemSubmit() {
-        const updatedItem = new Item(item_code,category,unit_price,qty);
-        item_dispatch({type:'UPDATE_ITEM', payload:updatedItem});
+        const updatedItem = new Item(item_code, category, unit_price, qty);
+        item_dispatch({type: 'UPDATE_ITEM', payload: updatedItem});
         navigate('/');
     }
 
     return (
-        <>
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <header><h2 className="text-2xl font-bold text-gray-700 mb-4">Update Customer</h2></header>
-                <br/>
-                <Modal type="customer" handleSubmit={handleSubmit} setName={setName} setEmail={setEmail} setPhone={setPhone}>Update
-                    Customer</Modal>
+        <div className="flex gap-6 p-6">
+            <div className="w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
+                <header>
+                    <h2 className="text-2xl font-bold text-gray-700 mb-4">Update Customer</h2>
+                </header>
+                <Modal type="customer" handleSubmit={handleSubmit} setName={setName} setEmail={setEmail}
+                       setPhone={setPhone}>
+                    Update Customer
+                </Modal>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <header><h2 className="text-2xl font-bold text-gray-700 mb-4">Update Item</h2></header>
-                <br/>
+            <div className="w-1/2 bg-gray-100 shadow-md rounded-lg p-6">
+                <header>
+                    <h2 className="text-2xl font-bold text-gray-700 mb-4">Update Item</h2>
+                </header>
                 <Modal
                     type="item"
                     handleSubmit={handleItemSubmit}
@@ -56,6 +60,6 @@ export function Update() {
                     Update Item
                 </Modal>
             </div>
-        </>
+        </div>
     );
 }

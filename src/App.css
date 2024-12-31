@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 input {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-md mb-1 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md mb-1 focus:outline-none focus:ring-2 focus:ring-green-500;
 }
 
 button {
-  @apply mt-6 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition;
+  @apply mt-6 w-full bg-green-800 text-white py-2 rounded-md hover:bg-green-600 transition;
 }
 
 @layer components {

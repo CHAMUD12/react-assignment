@@ -12,12 +12,12 @@ function App() {
     const routes = createBrowserRouter([
         {
             path: '',
-            element : <RootLayout/>,
-            children : [
-                { path : '', element : <Dashboard/>},
-                { path : '/add', element : <Add/>},
-                { path : '/delete', element : <Delete/>},
-                { path : '/update', element : <Update/>}
+            element: <RootLayout/>,
+            children: [
+                {path: '', element: <Dashboard/>},
+                {path: '/add', element: <Add/>},
+                {path: '/delete', element: <Delete/>},
+                {path: '/update', element: <Update/>}
             ]
         },
     ])
@@ -26,7 +26,7 @@ function App() {
         <>
             <CustomerProvider>
                 <ItemProvider>
-                    <RouterProvider router={routes} />
+                    <RouterProvider router={routes}/>
                 </ItemProvider>
             </CustomerProvider>
         </>
